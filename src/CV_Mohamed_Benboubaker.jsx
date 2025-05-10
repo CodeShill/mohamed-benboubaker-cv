@@ -202,11 +202,7 @@ const CV = () => {
           <ul style={{ fontSize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
             <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Mai 2024 - Actuellement</strong> | Développeur Full Stack - 5 Element Services<br />
-              <span style={{ color: '#6a9955' }}>[+] </span>Conception et déploiement de microservices <span style={{ color: '#ce9178' }}>PHP 8</span>, exposant des REST APIs JSON sécurisées.<br />
-              <span style={{ color: '#6a9955' }}>[*] </span>Optimisation de requêtes <span style={{ color: '#4ec9b0' }}>SQL</span> complexes (JOIN, CTE) et indexation, réduisant le TTFB de 40%.<br />
-              <span style={{ color: '#6a9955' }}>[+] </span>Implémentation de webhooks et triggers JSON pour synchronisation en temps réel entre <span style={{ color: '#b5cea8' }}>Dolibarr ERP</span> et marketplaces.<br />
-              <span style={{ color: '#6a9955' }}>[+] </span>Automatisation via <span style={{ color: '#569cd6' }}>CRON</span> de génération de rapports CSV et envoi d’emails par SMTP authentifié.<br />
-              <span style={{ color: '#6a9955' }}>[+] </span>Développement de scripts <span style={{ color: '#569cd6' }}>Node.js</span> pour traitement ETL et intégration continue (CI/CD).<br />
+              
             </li>
             <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Oct. 2023 - Mai 2024</strong> | Développeur Java - Halley Technologies<br />
