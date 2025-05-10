@@ -29,7 +29,8 @@ const CV = () => {
       color: '#d4d4d4',
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      flexDirection: 'column' // Stack CV and button vertically
     }}>
       <style>
         {`
@@ -99,6 +100,12 @@ const CV = () => {
           .konami-code {
             font-family: Arial, sans-serif;
           }
+          .download-button-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0.85rem;
+          }
         `}
       </style>
 
@@ -108,9 +115,10 @@ const CV = () => {
         style={{
           backgroundColor: '#252526',
           padding: '0.85rem',
-          width: '595pt',
+          width: '595pt', // Fixed width for A4-like rendering
           boxSizing: 'border-box',
-          color: '#d4d4d4'
+          color: '#d4d4d4',
+          margin: '0 auto' // Ensure CV is centered
         }}
       >
         {/* Header */}
@@ -194,7 +202,7 @@ const CV = () => {
           <ul style={{ fontSize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
             <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Mai 2024 - Actuellement</strong> | Développeur Full Stack - 5 Element Services<br />
-              <span style={{ color: '#6a9955' }}>[+] </span>Conception et déploiement de microservices <span style={{ color: '#ce9178' }}>PHP 8</span> , exposant des REST APIs JSON sécurisées.<br />
+              <span style={{ color: '#6a9955' }}>[+] </span>Conception et déploiement de microservices <span style={{ color: '#ce9178' }}>PHP 8</span>, exposant des REST APIs JSON sécurisées.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Optimisation de requêtes <span style={{ color: '#4ec9b0' }}>SQL</span> complexes (JOIN, CTE) et indexation, réduisant le TTFB de 40%.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Implémentation de webhooks et triggers JSON pour synchronisation en temps réel entre <span style={{ color: '#b5cea8' }}>Dolibarr ERP</span> et marketplaces.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Automatisation via <span style={{ color: '#569cd6' }}>CRON</span> de génération de rapports CSV et envoi d’emails par SMTP authentifié.<br />
@@ -273,7 +281,8 @@ const CV = () => {
                   {skill}
                 </span>
                 <div style={{ flex: 1 }} className="progress-bar">
-                  <div className="progress-bar-fill" style={{ width: `${level}%` }} />
+                  <div className="progress-bar-fill" style={{ width: `${level}%` }}
+                  />
                 </div>
                 <span className="percent-label" style={{
                   marginLeft: '0.5rem',
@@ -302,20 +311,22 @@ const CV = () => {
         </div>
       </div>
 
-      <button onClick={handleDownload} style={{
-        marginTop: '0.45rem',
-        padding: '0.49rem 0.98rem',
-        backgroundColor: '#007acc',
-        color: '#ffffff',
-        borderRadius: '3.9px',
-        border: 'none',
-        fontSize: '0.89rem',
-        cursor: 'pointer',
-        fontFamily: '"Fira Code", monospace, Arial, sans-serif',
-        transition: 'background-color 0.3s ease'
-      }} className="hover:bg-[#005f99]">
-        > Download CV as PDF
-      </button>
+      {/* Download Button Container */}
+      <div className="download-button-container">
+        <button onClick={handleDownload} style={{
+          padding: '0.49rem 0.98rem',
+          backgroundColor: '#007acc',
+          color: '#ffffff',
+          borderRadius: '3.9px',
+          border: 'none',
+          fontSize: '0.89rem',
+          cursor: 'pointer',
+          fontFamily: '"Fira Code", monospace, Arial, sans-serif',
+          transition: 'background-color 0.3s ease'
+        }} className="hover:bg-[#005f99]">
+          > Download CV as PDF
+        </button>
+      </div>
     </div>
   );
 };
