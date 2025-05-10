@@ -30,7 +30,7 @@ const CV = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'column' // Stack CV and button vertically
+      flexDirection: 'column'
     }}>
       <style>
         {`
@@ -71,6 +71,10 @@ const CV = () => {
             animation: scanline 2s linear infinite;
             transform: skewX(-20deg);
           }
+          /* Hide the stray grey button with Tailwind classes */
+          button.mt-8.px-6.py-3.bg-blue-600.text-white.rounded-lg.shadow-lg.hover\\:bg-blue-700 {
+            display: none !important;
+          }
           @media print {
             .progress-bar-fill::after {
               display: none;
@@ -81,10 +85,57 @@ const CV = () => {
             .cv-page-no-break {
               page-break-inside: avoid;
               break-inside: avoid;
+              width: 595pt !important; /* Ensure A4 width for PDF */
+            }
+          }
+          @media screen and (max-width: 768px) {
+            .cv-page-no-break {
+              width: 90vw !important; /* Fluid width for mobile */
+              padding: 0.5rem !important; /* Reduce padding */
+            }
+            .cv-header {
+              padding: 0.5rem !important; /* Reduce header padding */
+            }
+            .cv-header h1 {
+              font-size: 1.1rem !important; /* Smaller heading */
+            }
+            .cv-header p {
+              font-size: 0.65rem !important; /* Smaller contact info */
+            }
+            .cv-section {
+              padding-left: 0.5rem !important; /* Reduce section padding */
+            }
+            .cv-section h2 {
+              font-size: 0.9rem !important; /* Smaller section headings */
+            }
+            .cv-section p, .cv-section ul, .cv-section li, .cv-section span {
+              font-size: 0.65rem !important; /* Smaller text */
+              line-height: 1.2 !important; /* Adjust line height */
+            }
+            .skill-label {
+              width: 70px !important; /* Adjust skill label width */
+              font-size: 0.65rem !important;
+            }
+            .percent-label {
+              font-size: 0.7rem !important; /* Smaller percentage label */
+            }
+            .download-button-container {
+              margin-top: 0.5rem !important; /* Reduce margin */
+            }
+            .download-button-container button {
+              padding: 0.4rem 0.8rem !important; /* Smaller button */
+              font-size: 0.8rem !important;
+            }
+            .konami-code {
+              font-size: 0.55rem !important; /* Smaller Konami code text */
+            }
+            .debug-footer {
+              font-size: 0.55rem !important; /* Smaller footer text */
             }
           }
           .skill-label {
             white-space: nowrap;
+            width: 88px;
           }
           .percent-label {
             display: inline-block;
@@ -115,14 +166,14 @@ const CV = () => {
         style={{
           backgroundColor: '#252526',
           padding: '0.85rem',
-          width: '595pt', // Fixed width for A4-like rendering
+          width: '595pt',
           boxSizing: 'border-box',
           color: '#d4d4d4',
-          margin: '0 auto' // Ensure CV is centered
+          margin: '0 auto'
         }}
       >
         {/* Header */}
-        <div style={{
+        <div className="cv-header" style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -164,7 +215,7 @@ const CV = () => {
         </div>
 
         {/* Profile */}
-        <div style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
             fontSize: '1.06rem',
             color: '#569cd6',
@@ -190,7 +241,7 @@ const CV = () => {
         </div>
 
         {/* Experience */}
-        <div style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
             fontSize: '1.06rem',
             color: '#569cd6',
@@ -228,7 +279,7 @@ const CV = () => {
         </div>
 
         {/* Education */}
-        <div style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
             fontSize: '1.06rem',
             color: '#569cd6',
@@ -247,7 +298,7 @@ const CV = () => {
         </div>
 
         {/* Skills */}
-        <div style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
             fontSize: '1.06rem',
             color: '#569cd6',
@@ -273,7 +324,6 @@ const CV = () => {
             ].map(({ skill, level }) => (
               <div key={skill} style={{ marginBottom: '0.18rem', display: 'flex', alignItems: 'center' }}>
                 <span className="skill-label" style={{
-                  width: '88px',
                   color: (skill.includes('ançais') || skill.includes('Anglais') || skill.includes('Arabe'))
                     ? '#ce9178'
                     : '#9cdcfe'
@@ -300,7 +350,7 @@ const CV = () => {
         </div>
 
         {/* Debug Console Footer */}
-        <div style={{
+        <div className="debug-footer" style={{
           borderTop: '1px solid #007acc',
           paddingTop: '0.13rem',
           fontSize: '0.67rem',
