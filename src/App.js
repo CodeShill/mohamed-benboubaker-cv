@@ -1,9 +1,9 @@
 import React from "react";
-import PrintCV from "./PrintCV";
+import CV from "./CV_Mohamed_Benboubaker";
 import "./App.css";
 
 function App() {
-  return <PrintCV />;
+  return <CV />;
 }
 
 export default App;

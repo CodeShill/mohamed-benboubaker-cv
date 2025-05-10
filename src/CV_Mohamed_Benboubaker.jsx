@@ -71,9 +71,8 @@ const CV = () => {
             animation: scanline 2s linear infinite;
             transform: skewX(-20deg);
           }
-          /* Hide the stray grey button with Tailwind classes */
-          button.mt-8.px-6.py-3.bg-blue-600.text-white.rounded-lg.shadow-lg.hover\\:bg-blue-700 {
-            display: none !important;
+          .cv-page-no-break {
+            width: 595pt;
           }
           @media print {
             .progress-bar-fill::after {
@@ -85,52 +84,143 @@ const CV = () => {
             .cv-page-no-break {
               page-break-inside: avoid;
               break-inside: avoid;
-              width: 595pt !important; /* Ensure A4 width for PDF */
+              width: 595pt !important;
+            }
+          }
+          /* Mobile optimizations with multiple breakpoints */
+          @media screen and (max-width: 1024px) {
+            .cv-page-no-break {
+              width: 90vw !important;
+              padding: 0.6rem !important;
+            }
+            .cv-header {
+              padding: 0.6rem !important;
+            }
+            .cv-header h1 {
+              font-size: 1.2rem !important;
+            }
+            .cv-header p {
+              font-size: 0.7rem !important;
+            }
+            .cv-section {
+              padding-left: 0.6rem !important;
+            }
+            .cv-section h2 {
+              font-size: 1rem !important;
+            }
+            .cv-section p, .cv-section ul, .cv-section li, .cv-section span {
+              font-size: 0.7rem !important;
+              line-height: 1.3 !important;
+            }
+            .skill-label {
+              width: 80px !important;
+              font-size: 0.7rem !important;
+            }
+            .percent-label {
+              font-size: 0.75rem !important;
+            }
+            .download-button-container {
+              margin-top: 0.6rem !important;
+            }
+            .download-button-container button {
+              padding: 0.45rem 0.9rem !important;
+              font-size: 0.85rem !important;
+            }
+            .konami-code {
+              font-size: 0.6rem !important;
+            }
+            .debug-footer {
+              font-size: 0.6rem !important;
             }
           }
           @media screen and (max-width: 768px) {
             .cv-page-no-break {
-              width: 90vw !important; /* Fluid width for mobile */
-              padding: 0.5rem !important; /* Reduce padding */
+              width: 90vw !important;
+              padding: 0.5rem !important;
             }
             .cv-header {
-              padding: 0.5rem !important; /* Reduce header padding */
+              padding: 0.5rem !important;
             }
             .cv-header h1 {
-              font-size: 1.1rem !important; /* Smaller heading */
+              font-size: 1.1rem !important;
             }
             .cv-header p {
-              font-size: 0.65rem !important; /* Smaller contact info */
+              font-size: 0.65rem !important;
             }
             .cv-section {
-              padding-left: 0.5rem !important; /* Reduce section padding */
+              padding-left: 0.5rem !important;
             }
             .cv-section h2 {
-              font-size: 0.9rem !important; /* Smaller section headings */
+              font-size: 0.9rem !important;
             }
             .cv-section p, .cv-section ul, .cv-section li, .cv-section span {
-              font-size: 0.65rem !important; /* Smaller text */
-              line-height: 1.2 !important; /* Adjust line height */
+              font-size: 0.65rem !important;
+              line-height: 1.2 !important;
             }
             .skill-label {
-              width: 70px !important; /* Adjust skill label width */
+              width: 70px !important;
               font-size: 0.65rem !important;
             }
             .percent-label {
-              font-size: 0.7rem !important; /* Smaller percentage label */
+              font-size: 0.7rem !important;
             }
             .download-button-container {
-              margin-top: 0.5rem !important; /* Reduce margin */
+              margin-top: 0.5rem !important;
             }
             .download-button-container button {
-              padding: 0.4rem 0.8rem !important; /* Smaller button */
+              padding: 0.4rem 0.8rem !important;
               font-size: 0.8rem !important;
             }
             .konami-code {
-              font-size: 0.55rem !important; /* Smaller Konami code text */
+              font-size: 0.55rem !important;
             }
             .debug-footer {
-              font-size: 0.55rem !important; /* Smaller footer text */
+              font-size: 0.55rem !important;
+            }
+          }
+          @media screen and (max-width: 480px) {
+            .cv-page-no-break {
+              width: 95vw !important;
+              padding: 0.4rem !important;
+            }
+            .cv-header {
+              padding: 0.4rem !important;
+            }
+            .cv-header h1 {
+              font-size: 1rem !important;
+            }
+            .cv-header p {
+              font-size: 0.6rem !important;
+            }
+            .cv-section {
+              padding-left: 0.4rem !important;
+            }
+            .cv-section h2 {
+              font-size: 0.85rem !important;
+            }
+            .cv-section p, .cv-section ul, .cv-section li, .cv-section span {
+              font-size: 0.6rem !important;
+              line-height: 1.1 !important;
+            }
+            .skill-label {
+              width: 60px !important;
+              font-size: 0.6rem !important;
+            }
+            .percent-label {
+              font-size: 0.65rem !important;
+            }
+            .download-button-container {
+              margin-top: 0.4rem !important;
+            }
+            .download-button-container button {
+              padding: 0.35rem 0.7rem !important;
+              font-size: 0.75rem !important;
+            }
+            .konami-code {
+              font-size: 0.5rem !important;
+            }
+            .debug-footer {
+              font-size: 0.5rem !important;
             }
           }
           .skill-label {
@@ -166,7 +256,6 @@ const CV = () => {
         style={{
           backgroundColor: '#252526',
           padding: '0.85rem',
-          width: '595pt',
           boxSizing: 'border-box',
           color: '#d4d4d4',
           margin: '0 auto'
@@ -175,83 +264,83 @@ const CV = () => {
         {/* Header */}
         <div className="cv-header" style={{
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          marginBottom: '0.28rem',
-          backgroundColor: '#007acc',
+          flex-direction: 'column',
+          align-items: 'center',
+          margin-bottom: '0.28rem',
+          background-color: '#007acc',
           padding: '0.68rem',
-          borderRadius: '3.9px'
+          border-radius: '3.9px'
         }}>
           <img
             src="/Me.png"
             alt="Mohamed Benboubaker"
             style={{
               width: '79px',
-              borderRadius: '50%',
+              border-radius: '50%',
               border: '2.9px solid #ffffff',
-              marginBottom: '0.29rem',
+              margin-bottom: '0.29rem',
               transition: 'transform 0.3s ease'
             }}
             className="hover:scale-110"
           />
           <h1 style={{
-            fontSize: '1.36rem',
-            fontWeight: '600',
+            font-size: '1.36rem',
+            font-weight: '600',
             color: '#ffffff',
             margin: '0.29rem 0',
-            textTransform: 'uppercase',
-            letterSpacing: '1px'
+            text-transform: 'uppercase',
+            letter-spacing: '1px'
           }} className="typing-effect">
             Mohamed Benboubaker
           </h1>
           <p style={{
             color: '#d4d4d4',
-            fontSize: '0.76rem',
-            textAlign: 'center',
-            fontStyle: 'italic'
+            font-size: '0.76rem',
+            text-align: 'center',
+            font-style: 'italic'
           }}>
             Medbenboubaker1995@gmail.com | +216 543 961 86 | Tunisie
           </p>
         </div>
 
         {/* Profile */}
-        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
           <h2 style={{
-            fontSize: '1.06rem',
+            font-size: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            fontWeight: '500'
+            font-weight: '500'
           }}>
             // Profil Professionnel
           </h2>
           <span style={{
             display: 'inline-block',
-            backgroundColor: '#3c3c3c',
+            background-color: '#3c3c3c',
             color: '#9cdcfe',
             padding: '0.19rem 0.49rem',
-            borderRadius: '3.9px',
-            fontSize: '0.76rem',
-            marginBottom: '0.29rem'
+            border-radius: '3.9px',
+            font-size: '0.76rem',
+            margin-bottom: '0.29rem'
           }}>
             Full Stack Dev | 2+ Years
           </span>
-          <p style={{ color: '#d4d4d4', fontSize: '0.76rem', lineHeight: '1.32' }}>
+          <p style={{ color: '#d4d4d4', font-size: '0.76rem', line-height: '1.32' }}>
             Développeur full stack spécialisé en <span style={{ color: '#ce9178' }}>PHP</span>, <span style={{ color: '#dcdcaa' }}>JavaScript</span>, et <span style={{ color: '#4ec9b0' }}>SQL</span>. Expert en ERP, APIs, et automatisation e-commerce.
           </p>
         </div>
 
         {/* Experience */}
-        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
           <h2 style={{
-            fontSize: '1.06rem',
+            font-size: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            fontWeight: '500'
+            font-weight: '500'
           }}>
             // Expérience Professionnelle
           </h2>
-          <ul style={{ fontSize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
-            <li style={{ marginBottom: '0.39rem' }}>
+          <ul style={{ font-size: '0.76rem', line-height: '1.32', padding-left: '14px', color: '#d4d4d4' }}>
+            <li style={{ margin-bottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Mai 2024 - Actuellement</strong> | Développeur Full Stack - 5 Element Services<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Conception et déploiement de microservices <span style={{ color: '#ce9178' }}>PHP 8</span>, exposant des REST APIs JSON sécurisées.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Optimisation de requêtes <span style={{ color: '#4ec9b0' }}>SQL</span> complexes (JOIN, CTE) et indexation, réduisant le TTFB de 40%.<br />
@@ -259,14 +348,14 @@ const CV = () => {
               <span style={{ color: '#6a9955' }}>[+] </span>Automatisation via <span style={{ color: '#569cd6' }}>CRON</span> de génération de rapports CSV et envoi d’emails par SMTP authentifié.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Développement de scripts <span style={{ color: '#569cd6' }}>Node.js</span> pour traitement ETL et intégration continue (CI/CD).<br />
             </li>
-            <li style={{ marginBottom: '0.39rem' }}>
+            <li style={{ margin-bottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Oct. 2023 - Mai 2024</strong> | Développeur Java - Halley Technologies<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Programmation de pipelines CI/CD avec <span style={{ color: '#b5cea8' }}>GitLab CI</span> pour déploiement de modules <span style={{ color: '#569cd6' }}>Windchill PLM</span>.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Développement de services <span style={{ color: '#ce9178' }}>Java 11</span> manipulant des BOM et métadonnées PLM via SOAP/WSDL.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Intégration bidirectionnelle entre <span style={{ color: '#569cd6' }}>Windchill PLM</span> et SAP via <span style={{ color: '#b5cea8' }}>TIBCO</span> pour synchronisation de données en temps réel.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Intégration de tests unitaires <span style={{ color: '#b5cea8' }}>JUnit</span> avec une couverture supérieure à 90% pour chaque build.<br />
             </li>
-            <li style={{ marginBottom: '0.39rem' }}>
+            <li style={{ margin-bottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Août 2022 - Sept. 2023</strong> | Développeur WordPress - The Team<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Développé des sites <span style={{ color: '#ce9178' }}>WordPress</span> sur mesure avec des plugins personnalisés, optimisant les performances via <span style={{ color: '#b5cea8' }}>WP Super Cache</span>.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Implémenté des solutions e-commerce avec <span style={{ color: '#b5cea8' }}>WooCommerce</span>, intégrant des passerelles de paiement comme <span style={{ color: '#b5cea8' }}>Stripe</span> et <span style={{ color: '#b5cea8' }}>PayPal</span>.<br />
@@ -279,16 +368,16 @@ const CV = () => {
         </div>
 
         {/* Education */}
-        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
           <h2 style={{
-            fontSize: '1.06rem',
+            font-size: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            fontWeight: '500'
+            font-weight: '500'
           }}>
             // Formation
           </h2>
-          <ul style={{ fontSize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
+          <ul style={{ font-size: '0.76rem', line-height: '1.32', padding-left: '14px', color: '#d4d4d4' }}>
             <li>Avr. 2023 - Sep. 2023 | Formation Full Stack JS - GoMyCode</li>
             <li>Juin 2021 - Juin 2022 | Service Militaire - Ministère de la Défense</li>
             <li>Sep. 2018 - Oct. 2020 | Master Digital Management - ESSECT</li>
@@ -298,16 +387,16 @@ const CV = () => {
         </div>
 
         {/* Skills */}
-        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
           <h2 style={{
-            fontSize: '1.06rem',
+            font-size: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            fontWeight: '500'
+            font-weight: '500'
           }}>
-            // Compétences <span className="konami-code" style={{ color: '#6a9955', fontSize: '0.67rem' }}>(Konami Code: ↑↑↓↓←→←→BA)</span>
+            // Compétences <span className="konami-code" style={{ color: '#6a9955', font-size: '0.67rem' }}>(Konami Code: ↑↑↓↓←→←→BA)</span>
           </h2>
-          <div style={{ fontSize: '0.76rem' }}>
+          <div style={{ font-size: '0.76rem' }}>
             {[
               { skill: 'PHP', level: 60 },
               { skill: 'JavaScript', level: 50 },
@@ -322,7 +411,7 @@ const CV = () => {
               { skill: 'Anglais', level: 85 },
               { skill: 'Arabe', level: 100 }
             ].map(({ skill, level }) => (
-              <div key={skill} style={{ marginBottom: '0.18rem', display: 'flex', alignItems: 'center' }}>
+              <div key={skill} style={{ margin-bottom: '0.18rem', display: 'flex', align-items: 'center' }}>
                 <span className="skill-label" style={{
                   color: (skill.includes('ançais') || skill.includes('Anglais') || skill.includes('Arabe'))
                     ? '#ce9178'
@@ -335,9 +424,9 @@ const CV = () => {
                   />
                 </div>
                 <span className="percent-label" style={{
-                  marginLeft: '0.5rem',
-                  fontSize: '0.843rem',
-                  fontWeight: '600',
+                  margin-left: '0.5rem',
+                  font-size: '0.843rem',
+                  font-weight: '600',
                   color: (skill.includes('ançais') || skill.includes('Anglais') || skill.includes('Arabe'))
                     ? '#ce9178'
                     : '#9cdcfe'
@@ -351,11 +440,11 @@ const CV = () => {
 
         {/* Debug Console Footer */}
         <div className="debug-footer" style={{
-          borderTop: '1px solid #007acc',
-          paddingTop: '0.13rem',
-          fontSize: '0.67rem',
+          border-top: '1px solid #007acc',
+          padding-top: '0.13rem',
+          font-size: '0.67rem',
           color: '#6a9955',
-          textAlign: 'center'
+          text-align: 'center'
         }}>
           <span>console.log("Mohamed Benboubaker: Ready to code!");</span>
         </div>
@@ -365,13 +454,13 @@ const CV = () => {
       <div className="download-button-container">
         <button onClick={handleDownload} style={{
           padding: '0.49rem 0.98rem',
-          backgroundColor: '#007acc',
+          background-color: '#007acc',
           color: '#ffffff',
-          borderRadius: '3.9px',
+          border-radius: '3.9px',
           border: 'none',
-          fontSize: '0.89rem',
+          font-size: '0.89rem',
           cursor: 'pointer',
-          fontFamily: '"Fira Code", monospace, Arial, sans-serif',
+          font-family: '"Fira Code", monospace, Arial, sans-serif',
           transition: 'background-color 0.3s ease'
         }} className="hover:bg-[#005f99]">
           > Download CV as PDF
