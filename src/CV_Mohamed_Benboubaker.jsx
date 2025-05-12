@@ -71,6 +71,9 @@ const CV = () => {
             animation: scanline 2s linear infinite;
             transform: skewX(-20deg);
           }
+		  button.mt-8.px-6.py-3.bg-blue-600 {
+			  display: none !important;
+			}
           .cv-page-no-break {
             width: 595pt;
           }
