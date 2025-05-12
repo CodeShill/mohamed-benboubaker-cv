@@ -1,8 +1,40 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import html2pdf from 'html2pdf.js';
 
 const CV = () => {
   const cvRef = useRef();
+  const [progress, setProgress] = useState({});
+
+  useEffect(() => {
+    const skills = [
+      { skill: 'PHP', level: 60 },
+      { skill: 'JavaScript', level: 50 },
+      { skill: 'Java', level: 65 },
+      { skill: 'HTML/CSS', level: 60 },
+      { skill: 'SQL', level: 85 },
+      { skill: 'Dolibarr', level: 80 },
+      { skill: 'Shopify', level: 65 },
+      { skill: 'Windchill PLM', level: 60 },
+      { skill: 'API REST', level: 85 },
+      { skill: 'Français', level: 70 },
+      { skill: 'Anglais', level: 85 },
+      { skill: 'Arabe', level: 100 }
+    ];
+
+    skills.forEach(({ skill, level }) => {
+      let start = 0;
+      const duration = 2000; // 2 seconds animation
+      const step = level / (duration / 50); // Increment every 50ms
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= level) {
+          start = level;
+          clearInterval(timer);
+        }
+        setProgress(prev => ({ ...prev, [skill]: Math.round(start) }));
+      }, 50);
+    });
+  }, []);
 
   const handleDownload = () => {
     const element = cvRef.current;
@@ -42,6 +74,10 @@ const CV = () => {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
           }
+          @keyframes progressFill {
+            from { width: 0%; }
+            to { width: 100%; }
+          }
           .typing-effect {
             overflow: hidden;
             white-space: nowrap;
@@ -52,6 +88,7 @@ const CV = () => {
             border-radius: 3.9px;
             overflow: hidden;
             border: 1px solid #00aaff;
+            transition: width 0.1s ease-out;
           }
           .progress-bar-fill {
             background: linear-gradient(to right, #007acc, #00aaff);
@@ -59,6 +96,7 @@ const CV = () => {
             box-shadow: 0 0 5px #00aaff;
             position: relative;
             overflow: hidden;
+            animation: progressFill 2s ease-out forwards;
           }
           .progress-bar-fill::after {
             content: '';
@@ -71,9 +109,9 @@ const CV = () => {
             animation: scanline 2s linear infinite;
             transform: skewX(-20deg);
           }
-		  button.mt-8.px-6.py-3.bg-blue-600 {
-			  display: none !important;
-			}
+          button.mt-8.px-6.py-3.bg-blue-600 {
+            display: none !important;
+          }
           .cv-page-no-break {
             width: 595pt;
           }
@@ -267,43 +305,41 @@ const CV = () => {
         {/* Header */}
         <div className="cv-header" style={{
           display: 'flex',
-		  flexDirection: 'column', // ✅ Correct
-		  alignItems: 'center',    // ✅ Correct
-		  marginBottom: '0.28rem', // ✅ Correct
-		  backgroundColor: '#007acc', // ✅ Correct
-		  padding: '0.68rem',
-		  borderRadius: '3.9px'
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginBottom: '0.28rem',
+          backgroundColor: '#007acc',
+          padding: '0.68rem',
+          borderRadius: '3.9px'
         }}>
           <img
-			  src="/Me.png"
-			  alt="Mohamed Benboubaker"
-			  style={{
-				width: '79px',
-				borderRadius: '50%', // ✅ Correct
-				border: '2.9px solid #ffffff',
-				marginBottom: '0.29rem', // ✅ Correct
-				transition: 'transform 0.3s ease'
-			  }}
-			  className="hover:scale-110"
-			/>
+            src="/Me.png"
+            alt="Mohamed Benboubaker"
+            style={{
+              width: '79px',
+              borderRadius: '50%',
+              border: '2.9px solid #ffffff',
+              marginBottom: '0.29rem',
+              transition: 'transform 0.3s ease'
+            }}
+            className="hover:scale-110"
+          />
           <h1 style={{
-			  fontSize: '1.36rem', // ✅ Correct
-			  fontWeight: '600',   // ✅ Correct
-			  color: '#ffffff',
-			  margin: '0.29rem 0',
-			  textTransform: 'uppercase', // ✅ Correct
-			  letterSpacing: '1px' // ✅ Correct
-			}} className="typing-effect">
-
+            fontSize: '1.36rem',
+            fontWeight: '600',
+            color: '#ffffff',
+            margin: '0.29rem 0',
+            textTransform: 'uppercase',
+            letterSpacing: '1px'
+          }} className="typing-effect">
             Mohamed Benboubaker
           </h1>
-				  <p style={{
-		  color: '#d4d4d4',
-		  fontSize: '0.76rem', // ✅ Correct
-		  textAlign: 'center', // ✅ Correct
-		  fontStyle: 'italic' // ✅ Correct
-		}}>
-
+          <p style={{
+            color: '#d4d4d4',
+            fontSize: '0.76rem',
+            textAlign: 'center',
+            fontStyle: 'italic'
+          }}>
             Medbenboubaker1995@gmail.com | +216 543 961 86 | Tunisie
           </p>
         </div>
@@ -323,7 +359,7 @@ const CV = () => {
             backgroundColor: '#3c3c3c',
             color: '#9cdcfe',
             padding: '0.19rem 0.49rem',
-            borderRadius: '3.9px',
+            border-radius: '3.9px',
             fontSize: '0.76rem',
             marginBottom: '0.29rem'
           }}>
@@ -344,7 +380,7 @@ const CV = () => {
           }}>
             // Expérience Professionnelle
           </h2>
-          <ul style={{ fontsize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
+          <ul style={{ fontSize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
             <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Mai 2024 - Actuellement</strong> | Développeur Full Stack - 5 Element Services<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Conception et déploiement de microservices <span style={{ color: '#ce9178' }}>PHP 8</span>, exposant des REST APIs JSON sécurisées.<br />
@@ -378,7 +414,7 @@ const CV = () => {
             fontSize: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            fontWeight: '500'
+            font-weight: '500'
           }}>
             // Formation
           </h2>
@@ -392,7 +428,7 @@ const CV = () => {
         </div>
 
         {/* Skills */}
-        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
           <h2 style={{
             fontSize: '1.06rem',
             color: '#569cd6',
@@ -425,7 +461,9 @@ const CV = () => {
                   {skill}
                 </span>
                 <div style={{ flex: 1 }} className="progress-bar">
-                  <div className="progress-bar-fill" style={{ width: `${level}%` }}
+                  <div
+                    className="progress-bar-fill"
+                    style={{ width: `${progress[skill] || 0}%` }}
                   />
                 </div>
                 <span className="percent-label" style={{
@@ -436,7 +474,7 @@ const CV = () => {
                     ? '#ce9178'
                     : '#9cdcfe'
                 }}>
-                  [{level}%]
+                  [{progress[skill] || 0}%]
                 </span>
               </div>
             ))}
@@ -449,7 +487,7 @@ const CV = () => {
           paddingTop: '0.13rem',
           fontSize: '0.67rem',
           color: '#6a9955',
-          textAlign: 'center'
+          text-align: 'center'
         }}>
           <span>console.log("Mohamed Benboubaker: Ready to code!");</span>
         </div>
@@ -468,7 +506,7 @@ const CV = () => {
           fontFamily: '"Fira Code", monospace, Arial, sans-serif',
           transition: 'background-color 0.3s ease'
         }} className="hover:bg-[#005f99]">
-          > Download CV 
+          > Download CV
         </button>
       </div>
     </div>
