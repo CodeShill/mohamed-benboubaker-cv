@@ -74,10 +74,6 @@ const CV = () => {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
           }
-          @keyframes progressFill {
-            from { width: 0%; }
-            to { width: 100%; }
-          }
           .typing-effect {
             overflow: hidden;
             white-space: nowrap;
@@ -88,7 +84,6 @@ const CV = () => {
             border-radius: 3.9px;
             overflow: hidden;
             border: 1px solid #00aaff;
-            transition: width 0.1s ease-out;
           }
           .progress-bar-fill {
             background: linear-gradient(to right, #007acc, #00aaff);
@@ -96,7 +91,7 @@ const CV = () => {
             box-shadow: 0 0 5px #00aaff;
             position: relative;
             overflow: hidden;
-            animation: progressFill 2s ease-out forwards;
+            transition: width 0.05s linear;
           }
           .progress-bar-fill::after {
             content: '';
@@ -359,7 +354,7 @@ const CV = () => {
             backgroundColor: '#3c3c3c',
             color: '#9cdcfe',
             padding: '0.19rem 0.49rem',
-            border-radius: '3.9px',
+            borderRadius: '3.9px',
             fontSize: '0.76rem',
             marginBottom: '0.29rem'
           }}>
@@ -387,11 +382,11 @@ const CV = () => {
               <span style={{ color: '#6a9955' }}>[*] </span>Optimisation de requêtes <span style={{ color: '#4ec9b0' }}>SQL</span> complexes (JOIN, CTE) et indexation, réduisant le TTFB de 40%.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Implémentation de webhooks et triggers JSON pour synchronisation en temps réel entre <span style={{ color: '#b5cea8' }}>Dolibarr ERP</span> et marketplaces.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Automatisation via <span style={{ color: '#569cd6' }}>CRON</span> de génération de rapports CSV et envoi d’emails par SMTP authentifié.<br />
-              <span style={{ color: '#6a9955' }}>[+] </span>Développement de scripts <span style={{ color: '#569cd6' }}>Node.js</span> pour traitement ETL et intégration continue (CI/CD).<br />
+              <span style={{ color: '#6a9955' }}>[+] </span>Création de sites <span style={{ color: '#569cd6' }}>Shopify</span> et intégration via API avec <span style={{ color: '#569cd6' }}>Dolibarr</span> pour une synchronisation optimale.<br />
             </li>
             <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Oct. 2023 - Mai 2024</strong> | Développeur Java - Halley Technologies<br />
-              <span style={{ color: '#6a9955' }}>[+] </span>Programmation de pipelines CI/CD avec <span style={{ color: '#b5cea8' }}>GitLab CI</span> pour déploiement de modules <span style={{ color: '#569cd6' }}>Windchill PLM</span>.<br />
+              <span style={{ color: '#6a9955' }}>[+] </span>Programmation de pipelines CI/CD avec <span style={{ color: '#b5cea8' }}>BitBucket </span> pour déploiement de modules <span style={{ color: '#569cd6' }}>Windchill PLM</span>.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Développement de services <span style={{ color: '#ce9178' }}>Java 11</span> manipulant des BOM et métadonnées PLM via SOAP/WSDL.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Intégration bidirectionnelle entre <span style={{ color: '#569cd6' }}>Windchill PLM</span> et SAP via <span style={{ color: '#b5cea8' }}>TIBCO</span> pour synchronisation de données en temps réel.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Intégration de tests unitaires <span style={{ color: '#b5cea8' }}>JUnit</span> avec une couverture supérieure à 90% pour chaque build.<br />
@@ -414,7 +409,7 @@ const CV = () => {
             fontSize: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            font-weight: '500'
+            fontWeight: '500'
           }}>
             // Formation
           </h2>
@@ -428,7 +423,7 @@ const CV = () => {
         </div>
 
         {/* Skills */}
-        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
             fontSize: '1.06rem',
             color: '#569cd6',
@@ -487,7 +482,7 @@ const CV = () => {
           paddingTop: '0.13rem',
           fontSize: '0.67rem',
           color: '#6a9955',
-          text-align: 'center'
+          textAlign: 'center'
         }}>
           <span>console.log("Mohamed Benboubaker: Ready to code!");</span>
         </div>
