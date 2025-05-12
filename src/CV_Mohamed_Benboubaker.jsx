@@ -466,7 +466,7 @@ const CV = () => {
           font-family: '"Fira Code", monospace, Arial, sans-serif',
           transition: 'background-color 0.3s ease'
         }} className="hover:bg-[#005f99]">
-          > Download CV as PDF
+          > Download CV 
         </button>
       </div>
     </div>
