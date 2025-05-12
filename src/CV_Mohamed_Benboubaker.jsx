@@ -267,12 +267,12 @@ const CV = () => {
         {/* Header */}
         <div className="cv-header" style={{
           display: 'flex',
-          flex-direction: 'column',
-          align-items: 'center',
-          margin-bottom: '0.28rem',
-          background-color: '#007acc',
-          padding: '0.68rem',
-          border-radius: '3.9px'
+		  flexDirection: 'column', // ✅ Correct
+		  alignItems: 'center',    // ✅ Correct
+		  marginBottom: '0.28rem', // ✅ Correct
+		  backgroundColor: '#007acc', // ✅ Correct
+		  padding: '0.68rem',
+		  borderRadius: '3.9px'
         }}>
           <img
             src="/Me.png"
