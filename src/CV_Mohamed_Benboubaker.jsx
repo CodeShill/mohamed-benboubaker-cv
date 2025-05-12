@@ -275,75 +275,77 @@ const CV = () => {
 		  borderRadius: '3.9px'
         }}>
           <img
-            src="/Me.png"
-            alt="Mohamed Benboubaker"
-            style={{
-              width: '79px',
-              border-radius: '50%',
-              border: '2.9px solid #ffffff',
-              margin-bottom: '0.29rem',
-              transition: 'transform 0.3s ease'
-            }}
-            className="hover:scale-110"
-          />
+			  src="/Me.png"
+			  alt="Mohamed Benboubaker"
+			  style={{
+				width: '79px',
+				borderRadius: '50%', // ✅ Correct
+				border: '2.9px solid #ffffff',
+				marginBottom: '0.29rem', // ✅ Correct
+				transition: 'transform 0.3s ease'
+			  }}
+			  className="hover:scale-110"
+			/>
           <h1 style={{
-            font-size: '1.36rem',
-            font-weight: '600',
-            color: '#ffffff',
-            margin: '0.29rem 0',
-            text-transform: 'uppercase',
-            letter-spacing: '1px'
-          }} className="typing-effect">
+			  fontSize: '1.36rem', // ✅ Correct
+			  fontWeight: '600',   // ✅ Correct
+			  color: '#ffffff',
+			  margin: '0.29rem 0',
+			  textTransform: 'uppercase', // ✅ Correct
+			  letterSpacing: '1px' // ✅ Correct
+			}} className="typing-effect">
+
             Mohamed Benboubaker
           </h1>
-          <p style={{
-            color: '#d4d4d4',
-            font-size: '0.76rem',
-            text-align: 'center',
-            font-style: 'italic'
-          }}>
+				  <p style={{
+		  color: '#d4d4d4',
+		  fontSize: '0.76rem', // ✅ Correct
+		  textAlign: 'center', // ✅ Correct
+		  fontStyle: 'italic' // ✅ Correct
+		}}>
+
             Medbenboubaker1995@gmail.com | +216 543 961 86 | Tunisie
           </p>
         </div>
 
         {/* Profile */}
-        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
-            font-size: '1.06rem',
+            fontSize: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            font-weight: '500'
+            fontWeight: '500'
           }}>
             // Profil Professionnel
           </h2>
           <span style={{
             display: 'inline-block',
-            background-color: '#3c3c3c',
+            backgroundColor: '#3c3c3c',
             color: '#9cdcfe',
             padding: '0.19rem 0.49rem',
-            border-radius: '3.9px',
-            font-size: '0.76rem',
-            margin-bottom: '0.29rem'
+            borderRadius: '3.9px',
+            fontSize: '0.76rem',
+            marginBottom: '0.29rem'
           }}>
             Full Stack Dev | 2+ Years
           </span>
-          <p style={{ color: '#d4d4d4', font-size: '0.76rem', line-height: '1.32' }}>
+          <p style={{ color: '#d4d4d4', fontSize: '0.76rem', lineHeight: '1.32' }}>
             Développeur full stack spécialisé en <span style={{ color: '#ce9178' }}>PHP</span>, <span style={{ color: '#dcdcaa' }}>JavaScript</span>, et <span style={{ color: '#4ec9b0' }}>SQL</span>. Expert en ERP, APIs, et automatisation e-commerce.
           </p>
         </div>
 
         {/* Experience */}
-        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
-            font-size: '1.06rem',
+            fontSize: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            font-weight: '500'
+            fontWeight: '500'
           }}>
             // Expérience Professionnelle
           </h2>
-          <ul style={{ font-size: '0.76rem', line-height: '1.32', padding-left: '14px', color: '#d4d4d4' }}>
-            <li style={{ margin-bottom: '0.39rem' }}>
+          <ul style={{ fontsize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
+            <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Mai 2024 - Actuellement</strong> | Développeur Full Stack - 5 Element Services<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Conception et déploiement de microservices <span style={{ color: '#ce9178' }}>PHP 8</span>, exposant des REST APIs JSON sécurisées.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Optimisation de requêtes <span style={{ color: '#4ec9b0' }}>SQL</span> complexes (JOIN, CTE) et indexation, réduisant le TTFB de 40%.<br />
@@ -351,14 +353,14 @@ const CV = () => {
               <span style={{ color: '#6a9955' }}>[+] </span>Automatisation via <span style={{ color: '#569cd6' }}>CRON</span> de génération de rapports CSV et envoi d’emails par SMTP authentifié.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Développement de scripts <span style={{ color: '#569cd6' }}>Node.js</span> pour traitement ETL et intégration continue (CI/CD).<br />
             </li>
-            <li style={{ margin-bottom: '0.39rem' }}>
+            <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Oct. 2023 - Mai 2024</strong> | Développeur Java - Halley Technologies<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Programmation de pipelines CI/CD avec <span style={{ color: '#b5cea8' }}>GitLab CI</span> pour déploiement de modules <span style={{ color: '#569cd6' }}>Windchill PLM</span>.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Développement de services <span style={{ color: '#ce9178' }}>Java 11</span> manipulant des BOM et métadonnées PLM via SOAP/WSDL.<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Intégration bidirectionnelle entre <span style={{ color: '#569cd6' }}>Windchill PLM</span> et SAP via <span style={{ color: '#b5cea8' }}>TIBCO</span> pour synchronisation de données en temps réel.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Intégration de tests unitaires <span style={{ color: '#b5cea8' }}>JUnit</span> avec une couverture supérieure à 90% pour chaque build.<br />
             </li>
-            <li style={{ margin-bottom: '0.39rem' }}>
+            <li style={{ marginBottom: '0.39rem' }}>
               <strong style={{ color: '#9cdcfe' }}>Août 2022 - Sept. 2023</strong> | Développeur WordPress - The Team<br />
               <span style={{ color: '#6a9955' }}>[+] </span>Développé des sites <span style={{ color: '#ce9178' }}>WordPress</span> sur mesure avec des plugins personnalisés, optimisant les performances via <span style={{ color: '#b5cea8' }}>WP Super Cache</span>.<br />
               <span style={{ color: '#6a9955' }}>[*] </span>Implémenté des solutions e-commerce avec <span style={{ color: '#b5cea8' }}>WooCommerce</span>, intégrant des passerelles de paiement comme <span style={{ color: '#b5cea8' }}>Stripe</span> et <span style={{ color: '#b5cea8' }}>PayPal</span>.<br />
@@ -371,16 +373,16 @@ const CV = () => {
         </div>
 
         {/* Education */}
-        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
-            font-size: '1.06rem',
+            fontSize: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            font-weight: '500'
+            fontWeight: '500'
           }}>
             // Formation
           </h2>
-          <ul style={{ font-size: '0.76rem', line-height: '1.32', padding-left: '14px', color: '#d4d4d4' }}>
+          <ul style={{ fontSize: '0.76rem', lineHeight: '1.32', paddingLeft: '14px', color: '#d4d4d4' }}>
             <li>Avr. 2023 - Sep. 2023 | Formation Full Stack JS - GoMyCode</li>
             <li>Juin 2021 - Juin 2022 | Service Militaire - Ministère de la Défense</li>
             <li>Sep. 2018 - Oct. 2020 | Master Digital Management - ESSECT</li>
@@ -390,16 +392,16 @@ const CV = () => {
         </div>
 
         {/* Skills */}
-        <div className="cv-section" style={{ border-left: '2.9px solid #007acc', padding-left: '0.68rem', margin-bottom: '0.28rem' }}>
+        <div className="cv-section" style={{ borderLeft: '2.9px solid #007acc', paddingLeft: '0.68rem', marginBottom: '0.28rem' }}>
           <h2 style={{
-            font-size: '1.06rem',
+            fontSize: '1.06rem',
             color: '#569cd6',
             margin: '0.29rem 0',
-            font-weight: '500'
+            fontWeight: '500'
           }}>
-            // Compétences <span className="konami-code" style={{ color: '#6a9955', font-size: '0.67rem' }}>(Konami Code: ↑↑↓↓←→←→BA)</span>
+            // Compétences <span className="konami-code" style={{ color: '#6a9955', fontSize: '0.67rem' }}>(Konami Code: ↑↑↓↓←→←→BA)</span>
           </h2>
-          <div style={{ font-size: '0.76rem' }}>
+          <div style={{ fontSize: '0.76rem' }}>
             {[
               { skill: 'PHP', level: 60 },
               { skill: 'JavaScript', level: 50 },
@@ -414,7 +416,7 @@ const CV = () => {
               { skill: 'Anglais', level: 85 },
               { skill: 'Arabe', level: 100 }
             ].map(({ skill, level }) => (
-              <div key={skill} style={{ margin-bottom: '0.18rem', display: 'flex', align-items: 'center' }}>
+              <div key={skill} style={{ marginBottom: '0.18rem', display: 'flex', alignItems: 'center' }}>
                 <span className="skill-label" style={{
                   color: (skill.includes('ançais') || skill.includes('Anglais') || skill.includes('Arabe'))
                     ? '#ce9178'
@@ -427,9 +429,9 @@ const CV = () => {
                   />
                 </div>
                 <span className="percent-label" style={{
-                  margin-left: '0.5rem',
-                  font-size: '0.843rem',
-                  font-weight: '600',
+                  marginLeft: '0.5rem',
+                  fontSize: '0.843rem',
+                  fontWeight: '600',
                   color: (skill.includes('ançais') || skill.includes('Anglais') || skill.includes('Arabe'))
                     ? '#ce9178'
                     : '#9cdcfe'
@@ -443,11 +445,11 @@ const CV = () => {
 
         {/* Debug Console Footer */}
         <div className="debug-footer" style={{
-          border-top: '1px solid #007acc',
-          padding-top: '0.13rem',
-          font-size: '0.67rem',
+          borderTop: '1px solid #007acc',
+          paddingTop: '0.13rem',
+          fontSize: '0.67rem',
           color: '#6a9955',
-          text-align: 'center'
+          textAlign: 'center'
         }}>
           <span>console.log("Mohamed Benboubaker: Ready to code!");</span>
         </div>
@@ -457,13 +459,13 @@ const CV = () => {
       <div className="download-button-container">
         <button onClick={handleDownload} style={{
           padding: '0.49rem 0.98rem',
-          background-color: '#007acc',
+          backgroundColor: '#007acc',
           color: '#ffffff',
-          border-radius: '3.9px',
+          borderRadius: '3.9px',
           border: 'none',
-          font-size: '0.89rem',
+          fontSize: '0.89rem',
           cursor: 'pointer',
-          font-family: '"Fira Code", monospace, Arial, sans-serif',
+          fontFamily: '"Fira Code", monospace, Arial, sans-serif',
           transition: 'background-color 0.3s ease'
         }} className="hover:bg-[#005f99]">
           > Download CV 
