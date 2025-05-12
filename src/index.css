@@ -11,3 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+button.mt-8.px-6.py-3.bg-blue-600 {
+  display: none !important;
+}
